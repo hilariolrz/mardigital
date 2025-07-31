@@ -1109,216 +1109,29 @@
             }
         }
 
-        /* Correction spécifique pour mobile */
-        @media (max-width: 768px) {
-            body {
-                overflow-x: hidden;
-                /* Empêche le débordement horizontal */
-            }
-
-            .container {
-                width: 95%;
-                /* Réduit les marges latérales */
-                padding: 0 10px;
-                /* Padding plus serré */
-            }
-
-            /* Correction navbar mobile */
-            .navbar {
-                padding: 0 10px;
-            }
-
-            .nav-links {
-                width: 100%;
-                left: 0;
-                padding: 20px 10px;
-                /* Ajout de padding interne */
-                box-sizing: border-box;
-                /* Inclut le padding dans la largeur */
-            }
-
-            /* Ajustement des sections */
-            section {
-                padding: 3rem 0;
-            }
-
-            /* Correction des éléments flexibles */
-            .hero-content,
-            .about-content,
-            .services-grid,
-            .contact-grid {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            /* Images responsives */
-            img,
-            video {
-                max-width: 100%;
-                height: auto;
-                display: block;
-            }
-
-            /* Boutons plus larges */
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-                display: block;
-            }
-        }
-
-        /* Correction viewport mobile */
-        @viewport {
-            width: device-width;
-            zoom: 1.0;
-        }
-
-        /* Empêche le zoom non désiré sur iOS */
-        input,
-        textarea {
-            font-size: 16px !important;
-        }
-
-        /* Reset global */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        /* Base responsive */
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.5;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Conteneur principal */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header/Navbar corrigé */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #0A2463;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        /* Navigation desktop */
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
-        /* Contenu principal */
-        main {
-            margin-top: 80px;
-            flex: 1;
-            width: 100%;
-        }
-
-        /* Sections */
-        section {
-            padding: 60px 0;
-            width: 100%;
-        }
-
-        /* Correction mobile */
-        @media (max-width: 768px) {
-            html {
-                font-size: 14px;
-            }
-
-            .container {
-                padding: 0 12px;
-            }
-
-            /* Navbar mobile */
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: #0A2463;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                gap: 15px;
-                transform: translateY(-150%);
-                transition: transform 0.3s ease;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-            }
-
-            .hamburger {
-                display: block;
-                background: none;
-                border: none;
-                color: white;
+        @media (max-width: 400px) {
+            .hero h1 {
                 font-size: 1.8rem;
             }
 
-            /* Ajustements généraux */
-            section {
-                padding: 40px 0;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .btn {
-                width: 100%;
-                max-width: 300px;
+            .section-header h2 {
+                font-size: 1.5rem;
             }
-        }
 
-        /* Correction spécifique iOS */
-        @supports (-webkit-touch-callout: none) {
-            body {
-                min-height: -webkit-fill-available;
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            .service-body h3 {
+                font-size: 1.4rem;
+            }
+
+            .service-body ul li {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1821,27 +1634,7 @@
                 contactForm.reset();
             });
         }
-
-        // Menu mobile
-
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active')
-                ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bars"></i>';
-        });
-
-        // Ferme le menu au clic sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
     </script>
-
 </body>
 
 </html>
