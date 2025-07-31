@@ -33,20 +33,21 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
         }
 
         html {
+            font-size: 16px;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--light);
-            background: #1E1E24;
+            line-height: 1.5;
             overflow-x: hidden;
-            font-size: 18px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         h1,
@@ -105,10 +106,10 @@
         }
 
         .container {
-            width: 90%;
-            max-width: var(--container-width);
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         section {
@@ -158,11 +159,9 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgb(18, 18, 41);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            transition: var(--transition);
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            background: rgb(18, 18, 41);
+            padding: 1.5px;
+
         }
 
         header.scrolled {
@@ -173,16 +172,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 60px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
         }
 
         .logo-img {
-            height: 60px;
+            height: 40px;
             width: auto;
         }
 
@@ -199,16 +199,15 @@
 
         .nav-links {
             display: flex;
+            gap: 25px;
             list-style: none;
-            gap: 2.5rem;
         }
 
         .nav-links a {
-            color: var(--light);
+            color: white;
+            text-decoration: none;
             font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .nav-links a::after {
@@ -1006,26 +1005,38 @@
                 --section-padding: 5rem 0;
             }
 
+            html {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
             .nav-links {
                 position: fixed;
-                top: 90px;
-                left: -100%;
+                top: 80px;
+                left: 0;
                 width: 100%;
-                height: calc(100vh - 90px);
                 background: var(--primary);
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                gap: 2.5rem;
-                transition: var(--transition);
+                padding: 20px 0;
+                gap: 15px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
             }
 
             .nav-links.active {
-                left: 0;
+                transform: translateY(0);
             }
 
             .hamburger {
                 display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.8rem;
             }
 
             .hero {
@@ -1048,8 +1059,12 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
-                text-align: center;
             }
+
+            section {
+                padding: 40px 0;
+            }
+
 
             .section-header h2 {
                 font-size: 2.2rem;
@@ -1132,6 +1147,13 @@
 
             .service-body ul li {
                 font-size: 1rem;
+            }
+        }
+
+        /* Correction spécifique iOS */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
             }
         }
     </style>
@@ -1556,16 +1578,17 @@
         // Menu mobile
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-        const navLinksItems = document.querySelectorAll('.nav-links a');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            hamburger.innerHTML = navLinks.classList.contains('active') ?
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            hamburger.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
         });
 
-        navLinksItems.forEach(item => {
-            item.addEventListener('click', () => {
+        // Ferme le menu au clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
