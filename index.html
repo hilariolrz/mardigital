@@ -178,7 +178,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 1px;
+            gap: 0px;
         }
 
         .logo-img {
@@ -187,10 +187,10 @@
         }
 
         .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 600;
             color: var(--light);
-            font-family: 'Poppins', sans-serif;
+            font-family: "acumin-pro-wide", "Acumin Pro Wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         .logo-text span {
@@ -781,7 +781,7 @@
         .footer-logo-text {
             font-size: 1.6rem;
             font-weight: 600;
-            font-family: 'Poppins', sans-serif;
+            font-family: "acumin-pro-wide", "Acumin Pro Wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         .footer-logo-text span {
@@ -1166,7 +1166,7 @@
             <nav class="navbar">
                 <a href="#" class="logo">
                     <img src="LOGO/Logomardigital.png" alt="MARDIGITAL Logo" class="logo-img">
-                    <span class="logo-text">MARDIGITAL <span>AGENCE</span></span>
+                    <span class="logo-text">Mardigital </span>
                 </a>
 
                 <ul class="nav-links">
@@ -1472,27 +1472,36 @@
                     </div>
 
                     <div class="social-links">
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.instagram.com/agencemardigital?igsh=czlleGhtdTY2bm5l" class="social-link"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/16kaNv8KWn/" class="social-link" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@mardigitalagence?_t=ZM-8yV6fukzLMb&_r=1" class="social-link"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/mario-amevor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xnnzbpzk" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Votre nom" required>
+                            <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Votre email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Votre email" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Votre téléphone">
+                            <input type="tel" name="phone" class="form-control" placeholder="Votre téléphone">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Votre message" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Votre message"
+                                required></textarea>
                         </div>
+                        <!-- Ajoutez un champ caché pour le sujet de l'email -->
+                        <input type="hidden" name="_subject" value="Nouveau message depuis MARDIGITAL">
+                        <!-- Redirection après envoi (optionnel) -->
+                        <input type="hidden" name="_next" value="https://votresite.com/merci.html">
                         <button type="submit" class="btn">Envoyer le message</button>
                     </form>
                 </div>
@@ -1507,13 +1516,18 @@
                 <div class="footer-about">
                     <div class="footer-logo">
                         <img src="./LOGO/Logomardigital.png" alt="MARDIGITAL Logo" class="footer-logo-img">
-                        <span class="footer-logo-text">MARDIGITAL <span>AGENCE</span></span>
+                        <span class="footer-logo-text">Mardigital </span>
                     </div>
                     <p1>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque.</p1>
                     <div class="social-links">
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/agencemardigital?igsh=czlleGhtdTY2bm5l" class="social-link"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/16kaNv8KWn/" class="social-link" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@mardigitalagence?_t=ZM-8yV6fukzLMb&_r=1" class="social-link"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/mario-amevor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -1652,14 +1666,39 @@
             }
         });
 
-        // Form submission
+        // Form submission avec Formspree
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+            contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                // Here you would normally send the form data to a server
-                alert('Merci pour votre message! Nous vous contacterons bientôt.');
-                contactForm.reset();
+
+                // Désactive le bouton pour éviter les envois multiples
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert('Message envoyé ! Nous vous contacterons bientôt.');
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Erreur lors de l\'envoi');
+                    }
+                } catch (error) {
+                    alert('Erreur : veuillez réessayer ou nous contacter directement par email.');
+                    console.error(error);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer le message';
+                }
             });
         }
     </script>
