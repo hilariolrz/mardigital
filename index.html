@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MARDIGITAL AGENCE - THE BRAND WORLD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary: #0A2463;
+            --secondary: #3E92CC;
+            --accent: #3E92CC;
+            --light: #FFFFFF;
+            --dark: #000000;
+            --text: #2B2B2B;
+            --text-light: #6D6D6D;
+            --section-padding: 8rem 0;
+            --container-width: 1500px;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', serif;
+
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        p1 {
+            margin-bottom: 2rem;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background-color: var(--accent);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(53, 34, 16, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background-color: rgb(18, 18, 41);
+        }
+
+        .btn-outline {
+            background: rgb(18, 18, 41);
+            ;
+            border: 2px solid var(--accent);
+            color: var(--light);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--light);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgb(18, 18, 41);
+            padding: 1.5px;
+
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--light);
+            font-family: "acumin-pro-wide", "Acumin Pro Wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 2rem;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 900px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(16, 48, 95, 0.8), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Section Titres */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1.5rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--accent);
+            border-radius: 3px;
+        }
+
+        .section-header p {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .section-header p1 {
+            max-width: 800px;
+            margin: 2rem auto 0;
+            color: var(--light);
+            font-size: 1.2rem;
+        }
+
+        /* À propos */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-media {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 550px;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-video-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .about-video-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: rgb(18, 18, 41);
+        }
+
+        .about-video-btn i {
+            color: var(--light);
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-text ul li {
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-text ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Vision */
+        .vision {
+            background: linear-gradient(rgba(16, 48, 95, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+
+            color: var(--light);
+            text-align: center;
+        }
+
+        .vision .section-header h2 {
+            color: var(--light);
+        }
+
+        .vision-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .vision-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        /* Services */
+        .services {
+            background-color: #F8FAFF;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-media {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.1);
+        }
+
+        .service-body {
+            padding: 2.5rem;
+        }
+
+        .service-body h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .service-body ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-body ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .service-body ul li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        /* Pourquoi nous choisir */
+        .why-us {
+            background-color: var(--light);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(2, 2, 53, 0.925);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .feature-card:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-10px);
+        }
+
+        .feature-card:hover .feature-icon {
+            color: var(--light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: linear-gradient(rgba(10, 37, 99, 0.658), rgba(10, 37, 99, 0.808)),
+                url(FICHIER/colorist-working-with-editing-software-2025-03-13-06-09-31-utc.jpg) no-repeat center center/cover;
+            color: var(--light);
+            text-align: center;
+        }
+
+        .portfolio .section-header h2 {
+            color: var(--light);
+        }
+
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 123, 185, 0.76);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            transform: translateY(30px);
+            transition: var(--transition);
+            font-size: 1.8rem;
+        }
+
+        .portfolio-overlay p {
+            color: var(--light);
+            transform: translateY(30px);
+            transition: var(--transition) 0.1s;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-item:hover .portfolio-overlay h3,
+        .portfolio-item:hover .portfolio-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Contact */
+        .contact {
+            background-color: #F8FAFF;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .contact-details {
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(15deg);
+        }
+
+        .contact-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 125, 0, 0.2);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 6rem 0 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo-img {
+            height: 60px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            font-family: "acumin-pro-wide", "Acumin Pro Wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .footer-logo-text span {
+            color: var(--accent);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 10px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact-icon {
+            margin-right: 1.5rem;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .footer-contact-text {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(255, 125, 0, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            max-width: 1000px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: var(--primary);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            :root {
+                --section-padding: 4rem 0;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-media {
+                height: 500px;
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 5rem 0;
+            }
+
+            html {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                min-height: 800px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 4rem 0;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+
+            .about-media {
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            .service-body h3 {
+                font-size: 1.4rem;
+            }
+
+            .service-body ul li {
+                font-size: 1rem;
+            }
+        }
+
+        /* Correction spécifique iOS */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                min-height: -webkit-fill-available;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="FICHIER/LOGO/LOGO2.png" alt="MARDIGITAL Logo" class="logo-img">
+
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video autoplay muted loop class="hero-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-front-of-a-studio-background-39808-large.mp4"
+                type="video/mp4">
+        </video>
+        <div class="container">
+            <div class="hero-content">
+                <h1>THE BRAND WORLD</h1>
+                <p>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Contactez-nous</a>
+                    <a href="#portfolio" class="btn">Voir nos réalisations</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>À PROPOS DE NOUS</h2>
+                <p>Découvrez qui nous sommes et ce qui nous passionne</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-media">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Équipe MARDIGITAL" class="about-img">
+                    <div class="about-video-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h3>MARDIGITAL AGENCE</h3>
+                    <p>Une agence créative spécialisée dans la communication visuelle, le design graphique, la
+                        production audiovisuelle, le live streaming et la formation professionnelle.</p>
+                    <p>Fondée par Amevor Kossi Mario, passionné de création et fort de plusieurs années d'expérience,
+                        MARDIGITAL accompagne les marques dans la construction d'une image forte, cohérente et
+                        impactante.</p>
+                    <p>Nous accompagnons aussi nos clients dans la diffusion en direct d'événements grâce à notre
+                        service de live streaming professionnel, adapté aux conférences, concerts, émissions, cultes,
+                        lancements, etc.</p>
+
+                    <ul>
+                        <li>Communication visuelle sur mesure</li>
+                        <li>Design graphique professionnel</li>
+                        <li>Production audiovisuelle de qualité</li>
+                        <li>Solutions de live streaming innovantes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="vision">
+        <div class="container">
+            <div class="section-header">
+                <h2>NOTRE VISION</h2>
+                <div>
+                    <p1>Notre engagement envers l'excellence</p1>
+                </div>
+            </div>
+
+            <div class="vision-content">
+                <div class="vision-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <p1>Créer un monde où chaque marque, chaque entreprise, chaque projet est doté d'une identité visuelle
+                    puissante et mémorable. <strong>THE BRAND WORLD</strong>, c'est notre engagement à bâtir des marques
+                    qui parlent, séduisent et influencent.</p1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>NOS SERVICES</h2>
+                <p>Découvrez notre gamme complète de services professionnels</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-media">
+                        <img src="FLYERS/02_Business_Card_Mockup.jpg" alt="Branding & Design" class="service-img">
+                    </div>
+                    <div class="service-body">
+                        <h3>BRANDING & DESIGN</h3>
+                        <p>Création d'identités visuelles fortes et cohérentes :</p>
+                        <ul>
+                            <li>Logos professionnels</li>
+                            <li>Chartes graphiques</li>
+                            <li>Affiches, flyers, brochures</li>
+                            <li>Contenus pour réseaux sociaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-media">
+                        <img src="FICHIER/FORMATION.jpg" alt="Vidéo & Streaming" class="service-img">
+                    </div>
+                    <div class="service-body">
+                        <h3>VIDEO, PHOTO & STREAMING</h3>
+                        <p>Production de contenus visuels professionnels :</p>
+                        <ul>
+                            <li>Tournage / shooting professionnel</li>
+                            <li>Montage vidéo & étalonnage</li>
+                            <li>Clips, pubs, interviews, reels</li>
+                            <li>Live Streaming Multi-Cameras</li>
+                            <li>Aftermovies & reportages</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-media">
+                        <img src="FICHIER/architect-presenting-project-to-colleagues-2025-02-11-15-35-00-utc.jpg"
+                            alt="Formation & Coaching" class="service-img">
+                    </div>
+                    <div class="service-body">
+                        <h3>FORMATION & COACHING</h3>
+                        <p>Transmission de savoir-faire professionnels :</p>
+                        <ul>
+                            <li>Photoshop, Illustrator</li>
+                            <li>Montage vidéo (Premiere Pro, CapCut, DaVinci Resolve...)</li>
+                            <li>Formation au Live Streaming avec Vmix</li>
+                            <li>Cours en ligne, présentiel ou hybride</li>
+                            <li>Accompagnement des créatifs indépendants</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous choisir -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>POURQUOI NOUS CHOISIR ?</h2>
+                <p>Ce qui nous distingue de la concurrence</p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Créativité professionnelle</h3>
+                    <p1>Des idées innovantes et une approche créative pour faire ressortir votre marque.</p1>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Rapidité et respect des délais</h3>
+                    <p1>Nous livrons dans les temps avec une qualité constante.</p1>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Expérience client sur mesure</h3>
+                    <p1>Une approche personnalisée pour chaque projet et chaque client.</p1>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h3>Approche stratégique</h3>
+                    <p1>Une communication pensée pour atteindre vos objectifs business.</p1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>NOS RÉALISATIONS</h2>
+                <div>
+                    <p1>Découvrez quelques-uns de nos meilleurs projets</p1>
+                </div>
+
+            </div>
+
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <img src="FLYERS/ARTISTE ENSEMBLE.jpg" alt="Projet 1" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Campagne Branding</h3>
+                        <p>Identité visuelle complète</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="FICHIER/SHOOTING.JPG" alt="Projet 2" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Shooting Photo</h3>
+                        <p>Photographie professionnelle</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Projet 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Montage Vidéo</h3>
+                        <p>Clip promotionnel</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="FLYERS/GIDLINES2.jpg" alt="Projet 4" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Design Graphique</h3>
+                        <p>Charte graphique</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="https://www.behance.net/mariodesign2" target="_blank" class="btn">
+                    <i class="fab fa-behance"></i> Voir plus sur Behance
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>CONTACTEZ-NOUS</h2>
+                <p>Prêt à donner vie à votre projet ? Parlons-en !</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>MARDIGITAL AGENCE - THE BRAND WORLD</h3>
+                    <p>Besoin de booster votre image ? Un projet à confier ? Ou envie de se former sérieusement ?
+                        Contactez-nous dès maintenant :</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Téléphone</h4>
+                                <p>+228 70408432 / 97286829</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>mardigitalagence@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Adresse</h4>
+                                <p>Togo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/agencemardigital?igsh=czlleGhtdTY2bm5l" class="social-link"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/16kaNv8KWn/" class="social-link" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@mardigitalagence?_t=ZM-8yV6fukzLMb&_r=1" class="social-link"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/mario-amevor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/xnnzbpzk" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Votre message"
+                                required></textarea>
+                        </div>
+                        <!-- Ajoutez un champ caché pour le sujet de l'email -->
+                        <input type="hidden" name="_subject" value="Nouveau message depuis MARDIGITAL">
+                        <!-- Redirection après envoi (optionnel) -->
+                        <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="FICHIER/LOGO/LOGO2.png" alt="MARDIGITAL Logo" class="footer-logo-img">
+
+                    </div>
+                    <p1>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque.</p1>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/agencemardigital?igsh=czlleGhtdTY2bm5l" class="social-link"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/16kaNv8KWn/" class="social-link" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@mardigitalagence?_t=ZM-8yV6fukzLMb&_r=1" class="social-link"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/in/mario-amevor?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <p1>+228 70408432 / 97286829</p1>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <p1>mardigitalagence@gmail.com</p1>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <p1>Togo</p1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p1>&copy; 2025 MARDIGITAL AGENCE. Tous droits réservés.</p1>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="video-container">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Menu mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Ferme le menu au clic sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.classList.toggle('active', window.scrollY > 300);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Video modal
+        const videoBtn = document.querySelector('.about-video-btn');
+        const videoModal = document.getElementById('videoModal');
+        const modalClose = document.querySelector('.modal-close');
+
+        if (videoBtn) {
+            videoBtn.addEventListener('click', () => {
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+
+        modalClose.addEventListener('click', () => {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Form submission avec Formspree
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Désactive le bouton pour éviter les envois multiples
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours...';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert('Message envoyé ! Nous vous contacterons bientôt.');
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Erreur lors de l\'envoi');
+                    }
+                } catch (error) {
+                    alert('Erreur : veuillez réessayer ou nous contacter directement par email.');
+                    console.error(error);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer le message';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
