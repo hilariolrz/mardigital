@@ -235,14 +235,16 @@
             font-size: 2rem;
         }
 
+
+
         /* Hero */
         .hero {
             height: 100vh;
             min-height: 900px;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(16, 48, 95, 0.8), rgba(0, 0, 0, 0.8)),
-                url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(16, 48, 95, 0.384), rgba(0, 0, 0, 0.384)),
+                url('Fr/2.jpg') no-repeat center center/cover;
             color: var(--light);
             text-align: center;
             position: relative;
@@ -260,7 +262,9 @@
             font-size: 4.5rem;
             margin-bottom: 2rem;
             line-height: 1.2;
-            color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(rgb(5, 5, 78), rgb(225, 227, 231));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 3px;
         }
@@ -287,6 +291,57 @@
             object-fit: cover;
             z-index: 1;
             opacity: 0.3;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .design-elements {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .design-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .design-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .design-item:hover .design-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: var(--accent);
+            color: white;
+        }
+
+        .design-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* Section Titres */
@@ -329,114 +384,89 @@
             font-size: 1.2rem;
         }
 
-        /* À propos */
-        .about {
-            background-color: var(--light);
+        /* Section À propos */
+        .about-section {
+            padding: 5rem 0;
         }
 
-        .about-content {
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 0.85fr 0.90fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .about-media {
-            position: relative;
-            border-radius: var(--border-radius);
+        /* Carte Fondateur */
+        .founder-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--box-shadow);
-            height: 550px;
-        }
-
-        .about-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-video-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90px;
-            height: 90px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
+            height: 100%;
         }
 
-        .about-video-btn:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-            background-color: rgb(18, 18, 41);
+        .founder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .about-video-btn i {
-            color: var(--light);
-            font-size: 2rem;
-            margin-left: 5px;
+        .founder-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: top;
         }
 
-        .about-text h3 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .about-text ul {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .about-text ul li {
-            margin-bottom: 1.2rem;
-            position: relative;
-            padding-left: 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        .about-text ul li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        /* Vision */
-        .vision {
-            background: linear-gradient(rgba(16, 48, 95, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-
-            color: var(--light);
+        .founder-info {
+            padding: 2rem;
             text-align: center;
         }
 
-        .vision .section-header h2 {
+        .founder-title {
+            display: inline-block;
+            background: var(--primary);
             color: var(--light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        .vision-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.4rem;
-            position: relative;
-            line-height: 1.8;
+        .founder-name {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
         }
 
-        .vision-icon {
-            font-size: 4rem;
+        .founder-role {
+            color: black;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Contenu À propos */
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(rgb(5, 5, 78), rgb(225, 227, 231));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: black;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
             color: var(--accent);
-            margin-bottom: 2rem;
+            font-weight: 600;
         }
+
 
         /* Services */
         .services {
@@ -563,8 +593,8 @@
 
         /* Portfolio */
         .portfolio {
-            background: linear-gradient(rgba(10, 37, 99, 0.658), rgba(10, 37, 99, 0.808)),
-                url('FICHIER/colorist-working-with-editing-software-2025-03-13-06-09-31-utc.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(10, 37, 99, 0.959), rgba(10, 37, 99, 0.952)),
+                url('Fr/rea.jpg') no-repeat center center/cover;
             color: var(--light);
             text-align: center;
         }
@@ -990,9 +1020,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-media {
-                height: 500px;
-                order: -1;
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-card {
+                max-width: 500px;
+                margin: 0 auto;
             }
 
             .hero h1 {
@@ -1074,6 +1108,11 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+        }
+
+        .design-elements {
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
         @media (max-width: 576px) {
@@ -1165,7 +1204,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                    <img src="FICHIER/LOGO/LOGO2.png" alt="MARDIGITAL Logo" class="logo-img">
+                    <img src="Fr/LOGO2.png" alt="MARDIGITAL Logo" class="logo-img">
 
                 </a>
 
@@ -1186,79 +1225,103 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <video autoplay muted loop class="hero-video">
-            <source
-                src="https://assets.mixkit.co/videos/preview/mixkit-woman-posing-in-front-of-a-studio-background-39808-large.mp4"
-                type="video/mp4">
-        </video>
+
         <div class="container">
             <div class="hero-content">
                 <h1>THE BRAND WORLD</h1>
-                <p>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn">Contactez-nous</a>
-                    <a href="#portfolio" class="btn">Voir nos réalisations</a>
+
+
+
+                <!-- Éléments de design -->
+                <div class="design-elements">
+                    <div class="design-item">
+                        <div class="design-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <span class="design-label">Design Graphique</span>
+                    </div>
+                    <div class="design-item">
+                        <div class="design-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <span class="design-label">Identité Visuelle</span>
+                    </div>
+                    <div class="design-item">
+                        <div class="design-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <span class="design-label">Production Vidéo</span>
+                    </div>
+                    <div class="design-item">
+                        <div class="design-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <span class="design-label">Live Streaming</span>
+                    </div>
+                    <div class="design-item">
+                        <div class="design-icon">
+                            <i class="fas fa-object-group"></i>
+                        </div>
+                        <span class="design-label">UI/UX Design</span>
+                    </div>
+                    <p>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque</p>
+                    <!-- hero butons -->
+                    <div class="hero-btns">
+                        <a href="#contact" class="btn">Contactez-nous</a>
+                        <a href="#portfolio" class="btn">Voir nos réalisations</a>
+                    </div>
+
                 </div>
+
             </div>
-        </div>
+
     </section>
 
-    <!-- À propos -->
-    <section class="about" id="about">
+    <!--  À propos -->
+    <section class="about-section" id="about">
         <div class="container">
             <div class="section-header">
                 <h2>À PROPOS DE NOUS</h2>
-                <p>Découvrez qui nous sommes et ce qui nous passionne</p>
-            </div>
 
-            <div class="about-content">
-                <div class="about-media">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        alt="Équipe MARDIGITAL" class="about-img">
-                    <div class="about-video-btn">
-                        <i class="fas fa-play"></i>
+            </div>
+            <div class="about-grid">
+                <!-- Carte Fondateur -->
+                <div class="founder-card">
+                    <img src="Fr/PROFIL2.jpg" alt="Amevor Kossi Mario" class="founder-img">
+                    <div class="founder-info">
+                        <span class="founder-title">FONDATEUR</span>
+                        <h3 class="founder-name">Amevor Kossi Mario</h3>
+                        <p class="founder-role">Directeur Créatif & Expert en Design</p>
+
                     </div>
                 </div>
 
-                <div class="about-text">
-                    <h3>MARDIGITAL AGENCE</h3>
-                    <p>Une agence créative spécialisée dans la communication visuelle, le design graphique, la
-                        production audiovisuelle, le live streaming et la formation professionnelle.</p>
-                    <p>Fondée par Amevor Kossi Mario, passionné de création et fort de plusieurs années d'expérience,
-                        MARDIGITAL accompagne les marques dans la construction d'une image forte, cohérente et
-                        impactante.</p>
-                    <p>Nous accompagnons aussi nos clients dans la diffusion en direct d'événements grâce à notre
-                        service de live streaming professionnel, adapté aux conférences, concerts, émissions, cultes,
-                        lancements, etc.</p>
+                <!-- Contenu À propos -->
+                <div class="about-content">
+                    <h2>Notre ADN Créatif</h2>
+                    <p><span class="highlight">MARDIGITAL AGENCE</span> est une agence innovante spécialisée en
+                        communication visuelle, design graphique, production audiovisuelle, live streaming et formation
+                        professionnelle.</p>
 
-                    <ul>
-                        <li>Communication visuelle sur mesure</li>
-                        <li>Design graphique professionnel</li>
-                        <li>Production audiovisuelle de qualité</li>
-                        <li>Solutions de live streaming innovantes</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <p>Depuis sa création, notre mission est de transformer vos idées en <span
+                            class="highlight">expériences marquantes</span> qui inspirent, captivent et engagent votre
+                        public. Notre agence se distingue par son sens du détail, son écoute attentive et sa capacité à
+                        proposer des solutions sur mesure.</p>
 
-    <!-- Vision -->
-    <section class="vision">
-        <div class="container">
-            <div class="section-header">
-                <h2>NOTRE VISION</h2>
-                <div>
-                    <p1>Notre engagement envers l'excellence</p1>
-                </div>
-            </div>
+                    <p>Nous croyons qu'une identité visuelle bien pensée n'est pas seulement esthétique : elle est <span
+                            class="highlight">stratégique, mémorable</span> et parfaitement alignée avec l'ADN de votre
+                        marque.</p>
 
-            <div class="vision-content">
-                <div class="vision-icon">
-                    <i class="fas fa-eye"></i>
+
+
+                    <p>Grâce à notre expertise, nous permettons à nos clients de toucher un public plus large avec des
+                        solutions techniques adaptées garantissant une <span class="highlight">qualité optimale</span>.
+                    </p>
+
+                    <p>Nous sommes convaincus que chaque marque mérite de briller et de laisser une <span
+                            class="highlight">empreinte durable</span>. Notre promesse : créer, diffuser et former pour
+                        que votre image parle d'elle-même.</p>
                 </div>
-                <p1>Créer un monde où chaque marque, chaque entreprise, chaque projet est doté d'une identité visuelle
-                    puissante et mémorable. <strong>THE BRAND WORLD</strong>, c'est notre engagement à bâtir des marques
-                    qui parlent, séduisent et influencent.</p1>
             </div>
         </div>
     </section>
@@ -1274,7 +1337,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-media">
-                        <img src="FLYERS/02_Business_Card_Mockup.jpg" alt="Branding & Design" class="service-img">
+                        <img src="Fr/02_Business_Card_Mockup.jpg" alt="Branding & Design" class="service-img">
                     </div>
                     <div class="service-body">
                         <h3>BRANDING & DESIGN</h3>
@@ -1290,7 +1353,7 @@
 
                 <div class="service-card">
                     <div class="service-media">
-                        <img src="FICHIER/FORMATION.jpg" alt="Vidéo & Streaming" class="service-img">
+                        <img src="Fr/FORMATION3.jpg" alt="Vidéo & Streaming" class="service-img">
                     </div>
                     <div class="service-body">
                         <h3>VIDEO, PHOTO & STREAMING</h3>
@@ -1307,8 +1370,7 @@
 
                 <div class="service-card">
                     <div class="service-media">
-                        <img src="FICHIER/architect-presenting-project-to-colleagues-2025-02-11-15-35-00-utc.jpg"
-                            alt="Formation & Coaching" class="service-img">
+                        <img src="Fr/FORMATION.jpg" alt="Formation & Coaching" class="service-img">
                     </div>
                     <div class="service-body">
                         <h3>FORMATION & COACHING</h3>
@@ -1383,7 +1445,7 @@
 
             <div class="portfolio-gallery">
                 <div class="portfolio-item">
-                    <img src="FLYERS/ARTISTE ENSEMBLE.jpg" alt="Projet 1" class="portfolio-img">
+                    <img src="Fr/ARTISTE ENSEMBLE.jpg" alt="Projet 1" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Campagne Branding</h3>
                         <p>Identité visuelle complète</p>
@@ -1391,7 +1453,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="FICHIER/SHOOTING.JPG" alt="Projet 2" class="portfolio-img">
+                    <img src="Fr/SHOOTING.JPG" alt="Projet 2" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Shooting Photo</h3>
                         <p>Photographie professionnelle</p>
@@ -1399,8 +1461,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                        alt="Projet 3" class="portfolio-img">
+                    <img src="Fr/MONTAGE.jpg" alt="Projet 3" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Montage Vidéo</h3>
                         <p>Clip promotionnel</p>
@@ -1408,7 +1469,7 @@
                 </div>
 
                 <div class="portfolio-item">
-                    <img src="FLYERS/GIDLINES2.jpg" alt="Projet 4" class="portfolio-img">
+                    <img src="Fr/GIDLINES2.jpg" alt="Projet 4" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <h3>Design Graphique</h3>
                         <p>Charte graphique</p>
@@ -1514,7 +1575,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="FICHIER/LOGO/LOGO2.png" alt="MARDIGITAL Logo" class="footer-logo-img">
+                        <img src="Fr/LOGO2.png" alt="MARDIGITAL Logo" class="footer-logo-img">
 
                     </div>
                     <p1>Construisons ensemble une identité visuelle puissante et mémorable pour votre marque.</p1>
